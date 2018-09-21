@@ -18,6 +18,9 @@ attr_reader :capacity
     @guests.delete(guest)
   end
 
+  def add_song_to_playlist(song)
+    @playlist << song
+  end
   # def play_song(song)
   #
   # end
