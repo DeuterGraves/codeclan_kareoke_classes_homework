@@ -11,8 +11,11 @@ def setup()
   song1 = Song.new("When the Pin Hits the Shell", "Drive By Truckers")
   song2 = Song.new("Golden Chain of Hate", "Blue Balls Deluxe")
   song3 = Song.new("40 Miles to Vegas", "Southern Culture on the Skids")
+  song4 = Song.new("Alive", "Pearl Jam")
 
   @guest1 = Guest.new("Puck", 75, song2)
+  @guest2 = Guest.new("Jamie", 75, song3)
+  @guest3 = Guest.new("Karen", 75, song4)
 
 end
 
