@@ -9,6 +9,9 @@ class Venue
     @till = till
   end
 
+  def increase_till(price)
+    @till += price
+  end
 
   # class end
 end

@@ -9,5 +9,9 @@ class Guest
     @favorite_song = favorite_song
   end
 
+  def decrease_wallet(price)
+    @wallet -= price
+  end
+
 # class end
 end

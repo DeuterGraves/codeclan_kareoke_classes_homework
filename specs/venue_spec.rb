@@ -38,6 +38,25 @@ class VenueTest < MiniTest::Test
     assert_equal(0, @venue.till)
   end
 
+  # increase till (will need decrease wallet for guest)
+  def test_increase_till()
+    @venue.increase_till(15)
+    assert_equal(15, @venue.till)
+  end
+
+  #find room rate
+  # def find_room_rate()
+  #   assert_equal(25, @room1.rental)
+  # end
+
+  # release a room (remove room from the room array) remove guests from room.
+  def release_room()
+  end
+  # rent a room (put a room in the rooms array, collect the money)
+# find room rate
+# increase till by room rate
+
+
 
 
   # end class

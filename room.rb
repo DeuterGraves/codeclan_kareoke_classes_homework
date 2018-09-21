@@ -29,6 +29,10 @@ attr_reader :capacity
       return "Woah Nelly, there's too many people here!"
     end
   end
+
+  def guests_go_home()
+    @guests = []
+  end
   # def play_song(song)
   #
   # end

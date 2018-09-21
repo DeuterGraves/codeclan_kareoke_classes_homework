@@ -20,6 +20,7 @@ class RoomTest < MiniTest::Test
     @guest4 = Guest.new("Rob", 75, @song4)
 
     @room1 = Room.new([@guest1, @guest2], 3, 25, [])
+    @room2 = Room.new([@guest2, @guest3, @guest4], 3, 25, [])
   end
 
   def test_room_has_guests()
@@ -64,6 +65,13 @@ class RoomTest < MiniTest::Test
   def test_guest_check_in__under_capacity()
     @room1.check_guest_in(@guest4)
     assert_equal(3, @room1.guests.length())
+  end
+
+  # empty the room
+  def test_guests_leave()
+    @room1.guests_go_home()
+    assert_equal(0, @room1.guests.length())
+    assert_equal(3, @room2.guests.length())
   end
 
   # def test_play_song()

@@ -33,6 +33,12 @@ def test_guest_has_fave_song()
   assert_equal("Golden Chain of Hate", @guest1.favorite_song.title)
 end
 
+# decrease wallet
+def test_decrease_wallet()
+  #binding.pry
+  @guest1.decrease_wallet(15)
+  assert_equal(60, @guest1.wallet)
+end
 
 # class end
 end
