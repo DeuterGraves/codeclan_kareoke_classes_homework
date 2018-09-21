@@ -38,11 +38,16 @@ class Room
     return song.lyric
   end
 
-  def play_song_from_playlist(song)
-    #check if the song is in the add_song_to_playlist
-    #if it's there, play it
-    # if not - say something like "please try another song.."
+  def find_song(song)
+    @playlist.find {|item| item == song}
+  end
 
+  def play_song_from_playlist(song)
+    if find_song(song) == true
+      @room.play_song(song)
+    else
+      return "#{song.title} could not be found in the playlist, please add #{song.title} to your playlist or try another song.."
+    end
   end
 
 

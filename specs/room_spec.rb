@@ -10,7 +10,7 @@ class RoomTest < MiniTest::Test
   def setup()
 
     @song1 = Song.new("Golden Chain of Hate", "Blue Balls Deluxe", "Whisky, whores and overtime, have taken her place, now she's gone...")
-    @song2 = Song.new("40 Miles to Vegas", "Southern Culture on the Skids", "...Just our luck, look what just rolled up, a one-eyed man in a yellow tow truck...")
+    @song2 = Song.new("Two Minutes to Midnight", "Iron Maiden", "As the reasons for the carnage cut their meat and lick the gravy, we oil the jaws of the war machine and feed it with our babies")
     @song3 = Song.new("Alive", "Pearl Jam", "Son, she said, have I got a little story for you...")
     @song4 = Song.new("Copacabana", "Barry Manilow", "Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...")
     @song5 = Song.new("Right Hand Man", "Hamilton Original Cast", "Dying is easy, young man, living is harder")
@@ -82,12 +82,24 @@ class RoomTest < MiniTest::Test
     assert_equal("Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...", singing)
   end
 
-  # def test_play_song_from_playlist__song_exists()
-  #   @room1.add_song_to_playlist(@song4)
-  #   @room1.play_song_from_playlist(@song4)
-  #   assert_equal("Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...", play_song(@song4))
-  #
-  # end
+  def test_find_song_in_playlist()
+    @room1.add_song_to_playlist(@song1)
+    @room1.add_song_to_playlist(@song2)
+    @room1.add_song_to_playlist(@song3)
+    assert_equal(@song2, @room1.find_song(@song2))
+  end
+
+  def test_play_song_from_playlist__song_exists()
+    @room1.add_song_to_playlist(@song4)
+    @room1.play_song_from_playlist(@song4)
+    assert_equal("Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...", @room1.play_song(@song4))
+
+  end
+
+  def test_play_song_from_playlist__song_not_there()
+    @room1.add_song_to_playlist(@song4)
+    assert_equal("Float On could not be found in the playlist, please add Float On to your playlist or try another song..", @room1.play_song_from_playlist(@song6))
+  end
 
 
   # class end
