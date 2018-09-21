@@ -36,14 +36,14 @@ class RoomTest < MiniTest::Test
   end
 
   #check guests into rooms
-  def test_check_guests_in()
-    @room1.check_guest_in(@guest3)
+  def test_add_guest()
+    @room1.add_guest(@guest3)
     assert_equal(3, @room1.guests.length())
   end
 
   # check guests out of rooms
-  def test_check_guests_out()
-    @room1.check_guest_out(@guest2)
+  def test_remove_guest()
+    @room1.remove_guest(@guest2)
     assert_equal(1, @room1.guests.length())
   end
 
@@ -51,6 +51,19 @@ class RoomTest < MiniTest::Test
   def test_add_song_to_room()
     @room1.add_song_to_playlist(@song1)
     assert_equal(1, @room1.playlist.length())
+  end
+
+  # check in too many people
+  def test_guest_check_in__over_capacity()
+    @room1.add_guest(@guest3)
+    #@room1.add_guest(@guest4)
+    assert_equal("Woah Nelly, there's too many people here!", @room1.check_guest_in(@guest4))
+  end
+
+  # check in too many people
+  def test_guest_check_in__under_capacity()
+    @room1.check_guest_in(@guest4)
+    assert_equal(3, @room1.guests.length())
   end
 
   # def test_play_song()
