@@ -13,6 +13,9 @@ class RoomTest < MiniTest::Test
     @song2 = Song.new("40 Miles to Vegas", "Southern Culture on the Skids", "...Just our luck, look what just rolled up, a one-eyed man in a yellow tow truck...")
     @song3 = Song.new("Alive", "Pearl Jam", "Son, she said, have I got a little story for you...")
     @song4 = Song.new("Copacabana", "Barry Manilow", "Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...")
+    @song5 = Song.new("Right Hand Man", "Hamilton Original Cast", "Dying is easy, young man, living is harder")
+    @song6 = Song.new("Float On", "Modest Mouse", "I backed my car into a cop car the other day well, he just drove off - sometimes life's okay")
+    @song7 = Song.new("Jack and Diane", "John Cougar Melloncamp", "A little ditty 'bout Jack & Diane Two American kids growing up in the heart land")
 
     @guest1 = Guest.new("Puck", 75, @song1)
     @guest2 = Guest.new("Jamie", 75, @song2)
@@ -74,7 +77,14 @@ class RoomTest < MiniTest::Test
     assert_equal(3, @room2.guests.length())
   end
 
-  # def test_play_song()
+  def test_play_song()
+    singing = @room1.play_song(@song4)
+    assert_equal("Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...", singing)
+  end
+
+  # def test_play_song_from_playlist__song_exists()
+  #   @room1.add_song_to_playlist(@song4)
+  #   @room1.play_song_from_playlist(@song4)
   #   assert_equal("Her name was Lola, she was a showgirl with yellow feathers in her hair and a dress cut down to there...", play_song(@song4))
   #
   # end

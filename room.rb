@@ -1,7 +1,7 @@
 class Room
 
-attr_accessor :guests, :rental, :playlist
-attr_reader :capacity
+  attr_accessor :guests, :rental, :playlist
+  attr_reader :capacity
 
   def initialize(guests, capacity, rental, playlist)
     @guests = guests
@@ -31,11 +31,19 @@ attr_reader :capacity
   end
 
   def guests_go_home()
-    @guests = []
+    @guests.clear
   end
-  # def play_song(song)
-  #
-  # end
+
+  def play_song(song)
+    return song.lyric
+  end
+
+  def play_song_from_playlist(song)
+    #check if the song is in the add_song_to_playlist
+    #if it's there, play it
+    # if not - say something like "please try another song.."
+
+  end
 
 
   # class end
